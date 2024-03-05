@@ -14,8 +14,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: Prepare Env
+        run: bash env_prepare.sh
       - name: Run code test
-        run: |
-          bash test.sh
-          echo "Finish test"
-          echo "You can merge this pull request"
+        run: bash ci_test.sh
+          
