@@ -14,12 +14,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: Prepare Env
+        run: bash env_prepare.sh
       - name: Run code test
-        run: |
-          bash test.sh
-          echo "Finish test script: test.sh"
-          sudo apt-get update
-          sudo apt-get install libnl-3-dev libnl-genl-3-dev libnl-route-3-dev
-          g++ -o add_route test_add_route.cpp -I/usr/include/libnl3 -lnl-route-3 -lnl-3
-          echo "Finish test script: g++ -o add_route test_add_route.cpp -I/usr/include/libnl3 -lnl-route-3 -lnl-3"
-          echo "You can merge this pull request"
+        run: bash ci_test.sh
+          
