@@ -1,0 +1,1 @@
+void addRoute(const char* destination, const char* gateway, const char* interface);
